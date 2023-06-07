@@ -2,6 +2,8 @@ function Greeting(props) {
   //   const stringProps = JSON.stringify(props);
   //   const name = JSON.stringify(props.name)
 
+ 
+
   return (
     <div className="Greeting">
       {/* <h3>Hello {props.name} </h3>  */}

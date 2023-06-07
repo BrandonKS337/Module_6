@@ -41,7 +41,7 @@ function App() {
       <Greeting name="Joe Easy">
         <h1>Salutations RANDOM VIEWERS!!!!! {<br />} I am a greeting message per step 4 of the exercise 1 requirements!!</h1>
         <p>I'm using Children elements here from app.jsx</p>
-        <h4>The first line is using an h1 tag and is imbeeded underneath the Greeting component call in the app.jsx</h4>
+        <h4>The first line is using an h1 tag and is imbedded underneath the Greeting component call in the app.jsx</h4>
         <h5>I'm a new child element taking in the props.child change in Greeting.jsx</h5>
       </Greeting>
       {/* <Greeting>Hello</Greeting> */}
