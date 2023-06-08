@@ -4,6 +4,11 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Spidey from "./Spidey";
 import Welcome from "./Components/Welcome";
+import FullName from "./Components/Name/FullName";
+import ComplexComment from "./Components/Comment/ComplexComment";
+import Comment from "./Components/Comment/Comment";
+import UserInfo from "./Components/Comment/UserInfo";
+import MoviesList from "./Components/Movies/MoviesLists";
 
 function App() {
   const [count, setCount] = useState(0); // this segment is what controls the count's starting number on webpage
@@ -36,9 +41,20 @@ function App() {
   //   </>
   // );
 
+  const comment = {
+    date: new Date(),
+    text: "I hope you enjoy learning React!",
+    author: {
+      name: "Hello Kitty",
+      avatarUrl: "https://placekitten.com/g/64/64",
+    },
+  };
+
   return (
-    <> {/* <>= <React.Fragment> */}
-      <div>
+    <>
+      {/* {" "} */}
+      {/* <>= <React.Fragment> */}
+      {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -59,13 +75,30 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <Spidey countHere= {count} superhero={spiderman}/>
-      <Spidey countHere= {count2} superhero={batman}/>
-
-      {<Welcome name="students">
-        <p>Child of Welcome</p>
-        <p>Hey Hey Hey</p>
-      </Welcome>}
+      <Spidey countHere={count} superhero={spiderman} />
+      <Spidey countHere={count2} superhero={batman} />
+      {
+        <Welcome name="students">
+          <p>Child of Welcome</p>
+          <p>Hey Hey Hey</p>
+        </Welcome>
+      }
+      <FullName first="Billy" last="Joe" /> */}
+      {/* <div>
+        <p>test</p>
+      </div>
+      <ComplexComment
+        author={comment.author}
+        date={comment.date}
+        text={comment.text}
+      /> */}
+      <Comment
+        author={comment.author}
+        date={comment.date}
+        text={comment.text}
+      />
+      <MoviesList/>
+      
     </>
   );
 }
