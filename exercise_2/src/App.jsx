@@ -55,7 +55,7 @@ function App() {
     },
   ];
 
-  const [catToRender, setCatToRender] = useState({  
+  const [catToRender, setCatToRender] = useState({  //this creates a placeholder and "default image" for the randomizer button
     id: 1,
     name: "Cheetah",
     latinName: "Acinonyx jubatus",
