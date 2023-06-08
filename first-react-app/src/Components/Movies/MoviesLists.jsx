@@ -42,7 +42,6 @@ function MoviesList() {
 
         {/* can also move movie items out of the return to make it a 
                 variable and then call it like below */}
-
         {movieItems}
       </ul>
     </div>
