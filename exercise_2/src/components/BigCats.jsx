@@ -57,7 +57,7 @@ function BigCats() {
     //   <p>Latin Name: {cat.latinName}</p>
     // </div>
 
-    <SingleCat
+    <SingleCat   // This segment pulls in the SingleCat component and passes through all of the available keys. .... keys might not be the correct word here .. need to ask.
       key={cat.id}
       id={cat.id}
       name={cat.name}

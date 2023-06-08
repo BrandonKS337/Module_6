@@ -75,7 +75,7 @@ function App() {
       {/* <BigCats/>  */}
       {/*This portion is to render the whole BigCats array*/}
 
-
+<div><h3>The full Big Cats list is commented out in the app.jsx file. Please feel free to turn it back on if you want to see entire collection of wonderful cats. For now enjoy the fun button instead!!</h3></div>
       <SingleCat
         id={catToRender.id}
         name={catToRender.name}
