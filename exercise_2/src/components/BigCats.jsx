@@ -44,6 +44,12 @@ function BigCats() {
       latinName: "Panthera tigris",
       image: "./src/assets/tiger.jpg",
     },
+    {
+      id:8,
+      name: "Hunter Killer EXTREME!!",
+      latinName: "Faht Oranage Kat",
+      image: "./src/assets/house_cat.jpg"
+    },
   ];
 
   const catsList = bigCats.map((cat) => (

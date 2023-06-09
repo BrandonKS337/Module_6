@@ -53,6 +53,12 @@ function App() {
       latinName: "Panthera tigris",
       image: "./src/assets/tiger.jpg",
     },
+    {
+      id:8,
+      name: "Hunter Killer EXTREME!!",
+      latinName: "Faht Oranage Kat",
+      image: "./src/assets/house_cat.jpg"
+    },
   ];
 
   const [catToRender, setCatToRender] = useState({  //this creates a placeholder and "default image" for the randomizer button
@@ -64,7 +70,7 @@ function App() {
 
   const handleCatChange = () => {
     // Example function to change the cat to render
-    const randomCatIndex = Math.floor(Math.random() * 7); // Generate a random index between 0 and 6
+    const randomCatIndex = Math.floor(Math.random() * 8); // Generate a random index between 0 and 6
     const randomCat = bigCats[randomCatIndex]; // Get a random cat from the bigCats array
     setCatToRender(randomCat); // Set the random cat as the cat to render
   };
