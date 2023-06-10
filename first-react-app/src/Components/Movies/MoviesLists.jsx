@@ -1,28 +1,40 @@
+import { useState } from "react";
 import Movie from "./Movie";
 
-function MoviesList() {
-  const movies = [
-    {
-      id: 1,
-      title: "The Shawshank Redemption",
-      year: 1994,
-      synopsis: "Two imprisoned men find redemption.",
-    },
-    {
-      id: 2,
-      title: "The Dark Knight",
-      year: 2008,
-      synopsis: "Batman fights the menace known as the Joker.",
-    },
-    {
-      id: 3,
-      title: "Interstellar",
-      year: 2014,
-      synopsis: "Explorers travel through a wormhole in space.",
-    },
-  ];
+const movies = [
+  {
+    id: 1,
+    title: "The Shawshank Redemption",
+    year: 1994,
+    synopsis: "Two imprisoned men find redemption.",
+  },
+  {
+    id: 2,
+    title: "The Dark Knight",
+    year: 2008,
+    synopsis: "Batman fights the menace known as the Joker.",
+  },
 
-  const movieItems = movies.map((movie) => (
+  {
+    id: 4,
+    title: "Im a random movie",
+    year: 2029,
+    synopsis: "not a real moveie"
+  },
+  {
+    id: 3,
+    title: "Interstellar",
+    year: 2014,
+    synopsis: "Explorers travel through a wormhole in space.",
+  },
+];
+
+
+
+function MoviesList() {
+  const [currentMovies, setCurrentMovies] = useState(movies)
+
+  const movieItems = currentMovies.map((movie) => (
     // <li key={movie.id}>{movie.title}</li>
     <Movie
       key={movie.id}
@@ -31,6 +43,20 @@ function MoviesList() {
       synopsis={movie.synopsis}
     />
   ));
+
+  const handleReverseMovies = () => {
+    //first clone of original, so we don't mutate it
+    console.log('button clicked')  // added to troubleshoot reverse not working
+    
+    //to modify and update state here are the steps:
+
+    //First:
+    let newMovies = [...currentMovies]
+    //Second:
+    newMovies.reverse();        // ModiFies the clone
+    //Third:
+    setCurrentMovies(newMovies)   // sets updated clone in state
+  }
 
   return (
     <div className="MoviesList componentBox">
@@ -42,8 +68,10 @@ function MoviesList() {
 
         {/* can also move movie items out of the return to make it a 
                 variable and then call it like below */}
-        {movieItems}
+        {movieItems}  {/*removed to include the reverse button*/}
+        
       </ul>
+      <button onClick={handleReverseMovies}>Reverse List</button>
     </div>
   );
 }
