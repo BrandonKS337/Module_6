@@ -1,17 +1,3 @@
-function Comment(props) {
-    return(
-        <dic className="Comment componentBox">
-            <UserInfo user={props.author} />
-            <div className="Comment-text">
-                {props.text}
-            </div>
-            <div className="Comment-date">
-                {props.date.toLocaleString()}
-            </div>
-        </dic>
-    )
-}
-
 function ComplexComment(props) {
   // complex component which displays different elements of a comment
   return (
@@ -40,4 +26,4 @@ function ComplexComment(props) {
   );
 }
 
-export default ComplexComment
+export default ComplexComment;
