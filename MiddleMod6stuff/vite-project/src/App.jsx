@@ -25,7 +25,7 @@ function App() {
 
       <br />
 
-      <LogInForm/>
+      <SubmitForm/>
     </>
   );
 }

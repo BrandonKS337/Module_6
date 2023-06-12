@@ -8,7 +8,7 @@ function SubmitForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+/* prevenet default keeps page from refreshing on form submit. AKA prevents default behavior of webpage*/
     if (userPassword.length < 5) {
       setSubmitResult("Password must be at least 5 characters long");
     } else if (userPassword === userEmail) {
@@ -20,7 +20,7 @@ function SubmitForm() {
 
   return (
     <div className="LogInForm componentBox">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}> 
         <div>
           <label>
             Email Address:
