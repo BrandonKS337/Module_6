@@ -16,6 +16,7 @@ function SubmitForm() {
     } else {
       setSubmitResult("Successful Login");
     }
+    // e.target[1].type = "text"  this targets the type and changes password from "password" type to "text" type. Not good to put it here but can include it in a separate button for a "show password" button
   };
 
   return (

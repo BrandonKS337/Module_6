@@ -44,6 +44,14 @@ function MoviesList() {
     />
   ));
 
+    const handleAddMovie = (newMovieToAdd) => {
+      let newMovies = [
+        ...currentMovies,
+        newMovieToAdd
+      ]
+      setCurrentMovies(newMovies)
+    }
+
   const handleReverseMovies = () => {
     //first clone of original, so we don't mutate it
     console.log('button clicked')  // added to troubleshoot reverse not working
@@ -71,6 +79,8 @@ function MoviesList() {
         {movieItems}  {/*removed to include the reverse button*/}
         
       </ul>
+<button onClick={() => handleAddMovie(formData)}>Add Movie</button>
+
       <button onClick={handleReverseMovies}>Reverse List</button>
     </div>
   );
