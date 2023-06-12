@@ -19,7 +19,7 @@ const movies = [
     id: 4,
     title: "Im a random movie",
     year: 2029,
-    synopsis: "not a real moveie"
+    synopsis: "not a real moveie",
   },
   {
     id: 3,
@@ -29,10 +29,8 @@ const movies = [
   },
 ];
 
-
-
 function MoviesList() {
-  const [currentMovies, setCurrentMovies] = useState(movies)
+  const [currentMovies, setCurrentMovies] = useState(movies);
 
   const movieItems = currentMovies.map((movie) => (
     // <li key={movie.id}>{movie.title}</li>
@@ -44,27 +42,29 @@ function MoviesList() {
     />
   ));
 
-    const handleAddMovie = (newMovieToAdd) => {
-      let newMovies = [
-        ...currentMovies,
-        newMovieToAdd
-      ]
-      setCurrentMovies(newMovies)
-    }
+  const handleAddMovie = (newMovieToAdd) => {
+    let newMovie = {
+      ...newMovieToAdd,
+      id: currentMovies.length + 1,
+    };
+    let newMovies = [...currentMovies, newMovie];
+
+    setCurrentMovies(newMovies);
+  };
 
   const handleReverseMovies = () => {
     //first clone of original, so we don't mutate it
-    console.log('button clicked')  // added to troubleshoot reverse not working
-    
+    console.log("button clicked"); // added to troubleshoot reverse not working
+
     //to modify and update state here are the steps:
 
     //First:
-    let newMovies = [...currentMovies]
+    let newMovies = [...currentMovies];
     //Second:
-    newMovies.reverse();        // ModiFies the clone
+    newMovies.reverse(); // ModiFies the clone
     //Third:
-    setCurrentMovies(newMovies)   // sets updated clone in state
-  }
+    setCurrentMovies(newMovies); // sets updated clone in state
+  };
 
   return (
     <div className="MoviesList componentBox">
@@ -73,13 +73,15 @@ function MoviesList() {
                     //normally use {} but because rendering object use ()
                     <li key={movie.id}>{movie.title}</li>
                 ))} */}
-
         {/* can also move movie items out of the return to make it a 
                 variable and then call it like below */}
-        {movieItems}  {/*removed to include the reverse button*/}
-        
+        {movieItems} {/*removed to include the reverse button*/}
       </ul>
-<button onClick={() => handleAddMovie(formData)}>Add Movie</button>
+      
+
+      <button onClick={() => handleAddMovie(formData)}>Add Movie</button>
+
+      <button onClick={() => handleFilterMovies(2000)}>Filter Movies</button>
 
       <button onClick={handleReverseMovies}>Reverse List</button>
     </div>
