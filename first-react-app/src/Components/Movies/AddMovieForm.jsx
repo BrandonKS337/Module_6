@@ -4,9 +4,12 @@ function AddMovieForm({ onAddMovie }) {
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [synopsis, setSynopsis] = useState("");
+
   // ++ add support for the synopsis field as well, here and below
   const handleSubmit = (e) => {
     e.preventDefault();
+    const data = new FormData(e.target)
+    console.log(Object.fromEntries(data))
     onAddMovie({ title, year, synopsis }); //this is the "below" part mentioned on line 7
     setTitle(""); //after submitting this resets the title input clearing it for next use.
     setYear(""); //after submitting this resets the year input clearing it for next use.

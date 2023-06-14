@@ -11,6 +11,7 @@ import UserInfo from "./Components/Comment/UserInfo";
 import MoviesList from "./Components/Movies/MoviesLists";
 import MoodChanger from "../../MiddleMod6stuff/vite-project/src/MoodChanger.jsx/MoodChanger";
 import AddMovieForm from "./Components/Movies/AddMovieForm";
+import ExplodingBomb from "./Components/Error Message/ExplodingBomb";
 
 function App() {
   const [count, setCount] = useState(0); // this segment is what controls the count's starting number on webpage
@@ -104,6 +105,8 @@ function App() {
       {/* <MoodChanger/> */}
 
       {/* <AddMovieForm/> */}
+
+      <ExplodingBomb/>
     </>
   );
 }
