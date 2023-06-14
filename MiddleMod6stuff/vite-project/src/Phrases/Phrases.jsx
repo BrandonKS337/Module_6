@@ -4,11 +4,11 @@ const phrases = new Map([
   ["english", "Happy Birthday"],
   ["german", "Alles Gute zum Geburtstag"],
   ["spanish", "Felix Cumpleanos"],
-  ["pig latin", "Appy Hay Irthday Bay"]
+  ["pig latin", "Appy Hay Irthday Bay"],
 ]);
 
 function Phrases() {
-  const [currentLanguage, setCurrentLanguage] = useState("english");     //uncommented out to change up translator
+  const [currentLanguage, setCurrentLanguage] = useState("english"); //uncommented out to change up translator
 
   // const [phrase, setPhrase] = useState(phrase.get("english"));
 
@@ -20,35 +20,39 @@ function Phrases() {
   const [settings, setSettings] = useState({
     darkmode: false,
     autoscroll: false,
-    autoplay: false
-  })
+    autoplay: false,
+  });
 
   //event handler
   const handleChangeSettings = (newSetting) => {
-    setCurrentSetting(newSetting)
-    
-    
-    //commented out to change up translator
+    setCurrentSetting(newSetting);
+
+    //commented out to change up translator to a new version per slides
     // setCurrentPhrase({
     //   lang: newLang,
     //   phrase: phrases.get(newLang),
     // });
+  }
 
-    const handleChangeLanguage = (newLang) => {}
-    setCurrentLanguage(newLang);
-    setPhrase(phrases.get(lang));
+    const handleChangeLanguage = (newLang) => {
+    // setCurrentLanguage(newLang);
+    // setPhrase(phrases.get(lang));
+    setCurrentPhrase({
+      lang: newLang,
+      phrase: phrases.get(newLang),
+    });
 
     const handleChangeSettings = (newSetting) => {
       setSettings({
-        ...settings, 
-        newSetting
-      })
-    }
+        ...settings,
+        newSetting,
+      });
+    };
 
     // const handleChangeLanguage = (newLang) => {
 
     // }
-  };
+  }
 
   return (
     // This is the first version
@@ -69,8 +73,16 @@ function Phrases() {
       <button onClick={() => handleChangeLanguage("english")}>English</button>
       <button onClick={() => handleChangeLanguage("german")}>German</button>
       <button onClick={() => handleChangeLanguage("spanish")}>Spanish</button>
-      <button onClick={() => handleChangeLanguage("pig latin")}>Pig Latin</button>
+      <button onClick={() => handleChangeLanguage("pig latin")}>
+        Pig Latin
+      </button>
+
+      <button onClick={() => handleChangeSettings({ darkmode: true })}>
+        Dark Mode
+      </button>
     </>
-  );
+  )
 }
-export default Phrases;
+
+
+export default Phrases

@@ -7,6 +7,9 @@ import Phrases from "./Phrases/Phrases";
 // import CheckWeather from "./Weather/CheckWeather";
 // import Temperature from "./Weather/Temperature";
 import Weather from "./Weather/Weather";
+import LoginForm from "./Login/LoginForm";
+import SubmitForm from "./Login/SubmitForm";
+
 
 function App() {
   return (
@@ -22,6 +25,10 @@ function App() {
       <CheckWeather /> */}
 
       <br />
+      
+      {/* <LoginForm/>   */}
+      <SubmitForm/>
+
     </>
   );
 }

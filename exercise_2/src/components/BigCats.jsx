@@ -76,3 +76,20 @@ function BigCats() {
 }
 
 export default BigCats;
+
+
+
+/* hint by Robert
+create filter:
+ex: const handleFilterMovies = (year) => {
+  let newMovies = currentMovies.filter(movie => movie.year < year)
+
+  setCurrentMovies(newMovies)
+}
+
+///create button in return statement
+<button onClick{() => handleFilterMovies(2004)Panthera family filter</button>}
+
+
+//for second part create button that pulls original array and then sets newMovies to movies
+*/
