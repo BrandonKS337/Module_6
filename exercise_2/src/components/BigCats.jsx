@@ -1,7 +1,11 @@
+import { useState } from "react";
 import SingleCat from "./SingleCat"; // pulls in new SingleCat component we created to render one cat at a time
 
 function BigCats() {
-  const bigCats = [
+  // const bigCats = [
+  //CHANGING THIS FOR EXERCISE 4 REQUIREMENTS TO NEW VARIABLE ARRAY
+
+const bigCatsData = [
     {
       id: 1,
       name: "Cheetah",
@@ -9,10 +13,10 @@ function BigCats() {
       image: "./src/assets/cheetah.jpg",
     },
     {
-      id: 2,
-      name: "Cougar",
-      latinName: "Puma concolor",
-      image: "./src/assets/cougar.jpg",
+      id: 7,
+      name: "Tiger",
+      latinName: "Panthera tigris",
+      image: "./src/assets/tiger.jpg",
     },
     {
       id: 3,
@@ -39,11 +43,12 @@ function BigCats() {
       image: "./src/assets/snow_leapard.jpg",
     },
     {
-      id: 7,
-      name: "Tiger",
-      latinName: "Panthera tigris",
-      image: "./src/assets/tiger.jpg",
+      id: 2,
+      name: "Cougar",
+      latinName: "Puma concolor",
+      image: "./src/assets/cougar.jpg",
     },
+    
     {
       id:8,
       name: "Hunter Killer EXTREME!!",
@@ -51,6 +56,35 @@ function BigCats() {
       image: "./src/assets/house_cat.jpg"
     },
   ];
+
+  /*CREATING HANDLERS FOR EXERCISE 4 REQUIREMENTS
+  CREATE BUTTON FOR ALPHABETICAL SOR
+  CREATE BUTTON FOR REVERSING LIST*/
+
+  const [bigCats, setBigCats] = useState(bigCatsData)
+  const [sorted, setSorted] = useState(false)
+
+  const handleSort = () => {
+    const sortedCats = [...bigCats].sort((a,b) => a.name.localeCompare(b.name));
+    setBigCats(sortedCats)
+    setSorted(true)
+  };
+
+  const handleReverse = () => {
+    const reversedCats = [...bigCats].reverse();
+    setBigCats(reversedCats);
+    setSorted(false);
+  }
+
+  // adding one more button for fun that resets the original list undoing the alphabetical/reverse sorts
+
+  const handleReset = () => {
+    setBigCats(bigCatsData);
+    setSorted(false)
+  }
+  
+  
+
 
   const catsList = bigCats.map((cat) => (
     // <div key={cat.name}>               //stricty for pulling the items as a list in its entirety
@@ -70,9 +104,23 @@ function BigCats() {
       latinName={cat.latinName}
       image={cat.image}
     />
-  ));
+  ))
 
-  return catsList;
+  // return catsList;
+  //  CHANGING RETURN STATEMENT TO BUILD UP FOR EXERCISE 4
+
+  return (
+  <>
+      <div>
+        <button onClick={handleSort}>Sort Alphabetically</button>
+        <button onClick={handleReverse}>Reverse List</button>
+        <button onClick={handleReset}>Reset the List</button>
+      </div>
+      {sorted && <p>List is sorted alphabetically</p>}
+      {!sorted && <p>List is in its original order</p>}
+      {catsList}
+    </>
+  );
 }
 
 export default BigCats;
