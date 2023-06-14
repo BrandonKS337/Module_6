@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Movie from "./Movie";
 import AddMovieForm from "./AddMovieForm";
 
@@ -32,6 +32,11 @@ const movies = [
 
 function MoviesList() {
   const [currentMovies, setCurrentMovies] = useState(movies);
+  const [originalMovies]= useState(movies);  //this portion takes in the original Movies list and then stores it later for us to undo anything filtered out by the "filter" handler below.
+
+  useEffect(() => {   // this is taking in original current Movies as its own object to call upon when resetting the list.
+    setCurrentMovies(originalMovies);
+  }, [originalMovies]);
 
   const movieItems = currentMovies.map((movie) => (
     // <li key={movie.id}>{movie.title}</li>
@@ -67,6 +72,17 @@ function MoviesList() {
     setCurrentMovies(newMovies); // sets updated clone in state
   };
 
+  const handleFilterMovies = (year) => {
+    let newMovies = currentMovies.filter(movie => movie.year < year)
+  
+    setCurrentMovies(newMovies)
+  };
+
+  const handleResetMovies = () => {
+   setCurrentMovies(originalMovies)
+  };
+  
+
   return (
     <div className="MoviesList componentBox">
       <ul>
@@ -76,7 +92,7 @@ function MoviesList() {
                 ))} */}
         {/* can also move movie items out of the return to make it a 
                 variable and then call it like below */}
-        {movieItems} 
+        {movieItems}
         {/*removed to include the reverse button*/}
       </ul>
 
@@ -85,6 +101,7 @@ function MoviesList() {
       <AddMovieForm onAddMovie={handleAddMovie} />
 
       <button onClick={() => handleFilterMovies(2000)}>Filter Movies</button>
+      <button onClick={handleResetMovies}>Reset List</button>
 
       <button onClick={handleReverseMovies}>Reverse List</button>
     </div>

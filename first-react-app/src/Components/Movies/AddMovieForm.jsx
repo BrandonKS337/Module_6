@@ -3,16 +3,15 @@ import { useState } from "react";
 function AddMovieForm({ onAddMovie }) {
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
-  const [synopsis, setSynopsis] = useState('')
+  const [synopsis, setSynopsis] = useState("");
   // ++ add support for the synopsis field as well, here and below
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddMovie({ title, year, synopsis });  //this is the "below" part mentioned on line 7
-    setTitle(''); //after submitting this resets the title input clearing it for next use.
-    setYear('');//after submitting this resets the year input clearing it for next use.
-    setSynopsis('') //after submitting this resets the synopsis input clearing it for next use.
+    onAddMovie({ title, year, synopsis }); //this is the "below" part mentioned on line 7
+    setTitle(""); //after submitting this resets the title input clearing it for next use.
+    setYear(""); //after submitting this resets the year input clearing it for next use.
+    setSynopsis(""); //after submitting this resets the synopsis input clearing it for next use.
   };
-
 
   return (
     <div className="AddMovieForm componentBox">
@@ -24,7 +23,8 @@ function AddMovieForm({ onAddMovie }) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-        </label><br />
+        </label>
+        <br />
         <label>
           Year Released:
           <input
@@ -33,7 +33,8 @@ function AddMovieForm({ onAddMovie }) {
             value={year}
             onChange={(e) => setYear(e.target.value)}
           />
-        </label><br />
+        </label>
+        <br />
         <label>
           Movie Synopsis:
           <input
@@ -41,10 +42,14 @@ function AddMovieForm({ onAddMovie }) {
             value={synopsis}
             onChange={(e) => setSynopsis(e.target.value)}
           />
-        </label><br /><br />
+        </label>
+        <br />
+        <br />
 
-        <button>Add Movie</button><br />
-      </form><br />
+        <button>Add Movie</button>
+        <br />
+      </form>
+      <br />
     </div>
   );
 }
