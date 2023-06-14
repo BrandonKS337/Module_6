@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Movie from "./Movie";
+import AddMovieForm from "./AddMovieForm";
 
 const movies = [
   {
@@ -75,11 +76,13 @@ function MoviesList() {
                 ))} */}
         {/* can also move movie items out of the return to make it a 
                 variable and then call it like below */}
-        {movieItems} {/*removed to include the reverse button*/}
+        {movieItems} 
+        {/*removed to include the reverse button*/}
       </ul>
-      
 
-      <button onClick={() => handleAddMovie(formData)}>Add Movie</button>
+      {/* <button onClick={() => handleAddMovie(formData)}>Add Movie</button> */}
+
+      <AddMovieForm onAddMovie={handleAddMovie} />
 
       <button onClick={() => handleFilterMovies(2000)}>Filter Movies</button>
 

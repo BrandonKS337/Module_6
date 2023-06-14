@@ -7,7 +7,10 @@ function AddMovieForm({ onAddMovie }) {
   // ++ add support for the synopsis field as well, here and below
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddMovie({ title, year });
+    onAddMovie({ title, year, synopsis });  //this is the "below" part mentioned on line 7
+    setTitle(''); //after submitting this resets the title input clearing it for next use.
+    setYear('');//after submitting this resets the year input clearing it for next use.
+    setSynopsis('') //after submitting this resets the synopsis input clearing it for next use.
   };
 
 
@@ -21,7 +24,7 @@ function AddMovieForm({ onAddMovie }) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-        </label>
+        </label><br />
         <label>
           Year Released:
           <input
@@ -30,7 +33,7 @@ function AddMovieForm({ onAddMovie }) {
             value={year}
             onChange={(e) => setYear(e.target.value)}
           />
-        </label>
+        </label><br />
         <label>
           Movie Synopsis:
           <input
@@ -38,10 +41,10 @@ function AddMovieForm({ onAddMovie }) {
             value={synopsis}
             onChange={(e) => setSynopsis(e.target.value)}
           />
-        </label>
+        </label><br /><br />
 
-        <button>Add Movie</button>
-      </form>
+        <button>Add Movie</button><br />
+      </form><br />
     </div>
   );
 }
