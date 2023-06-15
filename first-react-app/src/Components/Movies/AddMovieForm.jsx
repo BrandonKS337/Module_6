@@ -8,7 +8,7 @@ function AddMovieForm({ onAddMovie }) {
   // ++ add support for the synopsis field as well, here and below
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = new FormData(e.target)
+    const data = new FormData(e.target)  // per robert -- this checks the html dom 
     console.log(Object.fromEntries(data))
     onAddMovie({ title, year, synopsis }); //this is the "below" part mentioned on line 7
     setTitle(""); //after submitting this resets the title input clearing it for next use.
