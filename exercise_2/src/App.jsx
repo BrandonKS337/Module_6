@@ -82,7 +82,6 @@ function App() {
     <>
       <BigCats bigCatsData={bigCats} />
       {/*This portion is to render the whole BigCats array*/}
-
       <div>
         <h3>
           The full Big Cats list is commented out in the app.jsx file. Please
@@ -97,7 +96,8 @@ function App() {
         image={catToRender.image}
       />
       <button onClick={handleCatChange}>Change Cat</button>
-      {/* <AddCatForm/> */} {/* Don't actually need to render the form here because it's already being built into the BigCats component */}
+      {/* <AddCatForm/> */}{" "}
+      {/* Don't actually need to render the form here because it's already being built into the BigCats component */}
     </>
   );
 }

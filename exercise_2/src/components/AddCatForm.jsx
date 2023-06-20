@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 function AddCatForm({ onAddCat }) {
   const [name, setName] = useState("");
   const [latinName, setLatinName] = useState("");
@@ -27,7 +26,6 @@ function AddCatForm({ onAddCat }) {
     setImage("");
   };
 
-  
   //beginning of return statement
 
   return (
@@ -64,11 +62,9 @@ function AddCatForm({ onAddCat }) {
         />
       </label>
       <br />
-    <button type="submit">Add Cat</button>
-
+      <button type="submit">Add Cat</button>
     </form>
-
   );
 }
 
-export default AddCatForm
+export default AddCatForm;

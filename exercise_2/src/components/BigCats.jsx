@@ -19,9 +19,9 @@ function BigCats() {
   const [cats, setCats] = useState(bigCatsData);
 
   const handleSort = () => {
-     /* had to modify the code here from Cats to cats to fix sorting/filtering/reset. 
+    /* had to modify the code here from Cats to cats to fix sorting/filtering/reset. 
       BigCats is being used elseWhere for different purposes */
-    const sortedCats = [...cats].sort((a,b) => a.name.localeCompare(b.name));
+    const sortedCats = [...cats].sort((a, b) => a.name.localeCompare(b.name));
     /*The localeCompare() method returns a number indicating whether a reference string comes before, or after, or 
     is the same as the given string in sort order. In implementations with Intl.Collator API support, this method simply calls Intl.Collator .Mar 26, 2023*/
     setCats(sortedCats);
@@ -44,6 +44,16 @@ function BigCats() {
   //Adding a handler for adding the new cat to the list
   const handleAddCat = (newCat) => {
     setCats((prevCats) => [...prevCats, newCat]);
+  };
+
+  //Exercise 4: Filter cats from Panthera family with button
+  //new handler to filter them out
+  const handleFilterPanthera = () => {
+    const filteredCats = bigCats.filter((cat) =>
+      cat.latinName.toLowerCase().includes("panthera")
+    );
+    setCats(filteredCats);
+    setSorted(false);
   };
 
   //commenting this out as part of exercise 5 to rename the variable
@@ -77,6 +87,7 @@ function BigCats() {
         <button onClick={handleSort}>Sort Alphabetically</button>
         <button onClick={handleReverse}>Reverse the List</button>
         <button onClick={handleReset}>Reset the List</button>
+        <button onClick={handleFilterPanthera}>Filter Panthera family</button>
       </div>
       {sorted && <p>List is sorted alphabetically</p>}
       {!sorted && <p>List is in its original order</p>}
