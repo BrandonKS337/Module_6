@@ -3,8 +3,13 @@ Exercise 5
 with controlled components to capture name, latinName
 and image details for a new Big Cat (extending Exercise 2
 and 4)
+////////DONE/////////
+
 • Submitting the form should update the parent BigCats
 component and re-render the list
+////////DONE/////////
+
+
 • Add a Delete link next to each cat allowing it to be removed
 from the list.
 
