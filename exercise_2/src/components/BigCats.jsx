@@ -56,10 +56,17 @@ function BigCats() {
     setSorted(false);
   };
 
+
+  //Exercise 5: adding in handler for deleting cats from list
+  const handleDeleteCat = (id) => {
+    const updatedCats = cats.filter((cat) => cat.id !== id);
+    setCats(updatedCats);
+  };
+
   //commenting this out as part of exercise 5 to rename the variable
   // const catsList = bigCats.map((cat) => (
   const catsList = cats.map((cat) => (
-    // <div key={cat.name}>               //stricty for pulling the items as a list in its entirety
+    // <div key={cat.name}>               //strictly for pulling the items as a list in its entirety
     //   <p>Name: {cat.name}</p>
     //   <p>Latin Name: {cat.latinName}</p>
     // </div>
@@ -75,6 +82,7 @@ function BigCats() {
       name={cat.name}
       latinName={cat.latinName}
       image={cat.image}
+      onDeleteCat={handleDeleteCat} //Exercise 5: adding in this portion to pass delete function from BigCats to SingleCat components
     />
   ));
 

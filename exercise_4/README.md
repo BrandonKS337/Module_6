@@ -9,8 +9,8 @@ include buttons for alphabetically sorting and reversing the
 list
 ////////DONE/////////
 
-
-
 • Add another button to filter the list and display only the
 cats in the ‘Panthera’ family, and one to reset and show
 the full list.
+
+////////DONE/////////

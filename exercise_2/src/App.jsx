@@ -94,6 +94,7 @@ function App() {
         name={catToRender.name}
         latinName={catToRender.latinName}
         image={catToRender.image}
+        // onDeleteCat={handleDeleteCat}
       />
       <button onClick={handleCatChange}>Change Cat</button>
       {/* <AddCatForm/> */}{" "}
