@@ -12,6 +12,7 @@ component and re-render the list
 
 • Add a Delete link next to each cat allowing it to be removed
 from the list.
+////////DONE/////////
 
 
 All of exercise 5 is going to be inserted into exercise_2's code. Please look for the commented out code indicating where the changes have taken place.
