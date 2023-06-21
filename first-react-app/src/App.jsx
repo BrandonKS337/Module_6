@@ -12,6 +12,8 @@ import MoviesList from "./Components/Movies/MoviesLists";
 import MoodChanger from "../../MiddleMod6stuff/vite-project/src/MoodChanger.jsx/MoodChanger";
 import AddMovieForm from "./Components/Movies/AddMovieForm";
 import ExplodingBomb from "./Components/Error Message/ExplodingBomb";
+// import Clock from "./Components/Clock/Clock";
+import ClockDisplay from "./Components/Clock/ClockDisplay";
 
 function App() {
   const [count, setCount] = useState(0); // this segment is what controls the count's starting number on webpage
@@ -95,18 +97,20 @@ function App() {
         date={comment.date}
         text={comment.text}
       /> */}
+      <ClockDisplay />
+
       <Comment
         author={comment.author}
         date={comment.date}
         text={comment.text}
       />
-      <MoviesList/>
-      
+      <MoviesList />
+
       {/* <MoodChanger/> */}
 
       {/* <AddMovieForm/> */}
 
-      <ExplodingBomb/>
+      <ExplodingBomb />
     </>
   );
 }
