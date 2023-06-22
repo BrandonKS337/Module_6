@@ -14,6 +14,8 @@ import AddMovieForm from "./Components/Movies/AddMovieForm";
 import ExplodingBomb from "./Components/Error Message/ExplodingBomb";
 // import Clock from "./Components/Clock/Clock";
 import ClockDisplay from "./Components/Clock/ClockDisplay";
+import ActivityFinder from "./Components/ActivityFinder";
+import RefCounter from "./Components/RefCounter";
 
 function App() {
   const [count, setCount] = useState(0); // this segment is what controls the count's starting number on webpage
@@ -97,7 +99,12 @@ function App() {
         date={comment.date}
         text={comment.text}
       /> */}
+ <RefCounter />
+<br />
+
       <ClockDisplay />
+
+      <ActivityFinder />
 
       <Comment
         author={comment.author}
@@ -110,7 +117,7 @@ function App() {
 
       {/* <AddMovieForm/> */}
 
-      <ExplodingBomb />
+      {/* <ExplodingBomb /> */}
     </>
   );
 }

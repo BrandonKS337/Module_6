@@ -6,12 +6,18 @@ import ErrorMessage from "./Components/Error Message/ErrorMessage.jsx";
 
 import { ErrorBoundary } from "react-error-boundary";
 
+import { BrowserRouter } from "react-router-dom";
+
+const MyContext = React.createContext("initial value");
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ErrorBoundary FallbackComponent={ErrorMessage}>    
-    {/*Installing Error boundary around ENTIRE app at once this way. 
+    <ErrorBoundary FallbackComponent={ErrorMessage}>
+      {/*Installing Error boundary around ENTIRE app at once this way. 
     AKA parent down to child elements */}
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ErrorBoundary>
   </React.StrictMode>
-)
+);
