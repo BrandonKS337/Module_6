@@ -19,12 +19,11 @@ function BigCats() {
   const [cats, setCats] = useState(bigCatsData);
 
   const handleSort = () => {
-     /* had to modify the code here from Cats to cats to fix sorting/filtering/reset. 
+    /* had to modify the code here from Cats to cats to fix sorting/filtering/reset. 
       BigCats is being used elseWhere for different purposes */
-    const sortedCats = [...cats].sort((a,b) => a.name.localeCompare(b.name));
+    const sortedCats = [...cats].sort((a, b) => a.name.localeCompare(b.name));
     /*The localeCompare() method returns a number indicating whether a reference string comes before, or after, or 
-    is the same as the given string in sort order. In implementations with Intl.Collator API support, this method simply 
-    calls Intl.Collator .Mar 26, 2023*/
+    is the same as the given string in sort order. In implementations with Intl.Collator API support, this method simply calls Intl.Collator .Mar 26, 2023*/
     setCats(sortedCats);
     setSorted(true);
   };
@@ -47,10 +46,27 @@ function BigCats() {
     setCats((prevCats) => [...prevCats, newCat]);
   };
 
+  //Exercise 4: Filter cats from Panthera family with button
+  //new handler to filter them out
+  const handleFilterPanthera = () => {
+    const filteredCats = bigCats.filter((cat) =>
+      cat.latinName.toLowerCase().includes("panthera")
+    );
+    setCats(filteredCats);
+    setSorted(false);
+  };
+
+
+  //Exercise 5: adding in handler for deleting cats from list
+  const handleDeleteCat = (id) => {
+    const updatedCats = cats.filter((cat) => cat.id !== id);
+    setCats(updatedCats);
+  };
+
   //commenting this out as part of exercise 5 to rename the variable
   // const catsList = bigCats.map((cat) => (
   const catsList = cats.map((cat) => (
-    // <div key={cat.name}>               //stricty for pulling the items as a list in its entirety
+    // <div key={cat.name}>               //strictly for pulling the items as a list in its entirety
     //   <p>Name: {cat.name}</p>
     //   <p>Latin Name: {cat.latinName}</p>
     // </div>
@@ -66,7 +82,7 @@ function BigCats() {
       name={cat.name}
       latinName={cat.latinName}
       image={cat.image}
-      onDeleteCat={handleDeleteCat}
+      onDeleteCat={handleDeleteCat} //Exercise 5: adding in this portion to pass delete function from BigCats to SingleCat components
     />
   ));
 
@@ -79,6 +95,7 @@ function BigCats() {
         <button onClick={handleSort}>Sort Alphabetically</button>
         <button onClick={handleReverse}>Reverse the List</button>
         <button onClick={handleReset}>Reset the List</button>
+        <button onClick={handleFilterPanthera}>Filter Panthera family</button>
       </div>
       {sorted && <p>List is sorted alphabetically</p>}
       {!sorted && <p>List is in its original order</p>}
